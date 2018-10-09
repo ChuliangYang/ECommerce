@@ -1,13 +1,13 @@
 package com.me.cl.popularmovie.mvvm.di
 
 import android.app.Application
+import android.arch.persistence.room.Room
+import com.me.cl.popularmovie.mvvm.API_KEY
 import com.me.cl.popularmovie.mvvm.MovieApplication
 import com.me.cl.popularmovie.mvvm.SERVER_HOST
 import com.me.cl.popularmovie.mvvm.api.LiveDataCallAdapterFactory
-import com.me.cl.template.MyApplication
-import com.me.cl.template.framework.api.LiveDataCallAdapterFactory
-import com.me.cl.template.presentation.api.ApiService
-import com.me.cl.template.presentation.api.SERVER_HOST
+import com.me.cl.popularmovie.mvvm.api.MovieService
+import com.me.cl.popularmovie.mvvm.local.AppDatabase
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -31,21 +31,30 @@ class AppModule {
 //            })
             addNetworkInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
-            })
+            }
+            )
+            addNetworkInterceptor {chain->
+                val request=chain.request()
+                request.url().newBuilder().addQueryParameter("api_key", API_KEY).build().let {
+                    request.newBuilder().url(it).build().let {
+                        chain.proceed(it)
+                    }
+                }
+            }
         }.build()).addConverterFactory(GsonConverterFactory.create()).addCallAdapterFactory(LiveDataCallAdapterFactory()).build()
     }
 
     @Singleton
     @Provides
-    fun provideGistService(retrofit: Retrofit): ApiService {
-        return retrofit.create(ApiService::class.java)
+    fun provideGistService(retrofit: Retrofit): MovieService {
+        return retrofit.create(MovieService::class.java)
     }
 
-//    @Singleton
-//    @Provides
-//    fun provideRoomDataBase(application: Application): AppDatabase {
-//        return Room.databaseBuilder(application, AppDatabase::class.java, "material-tab").build()
-//    }
+    @Singleton
+    @Provides
+    fun provideRoomDataBase(application: Application): AppDatabase {
+        return Room.databaseBuilder(application, AppDatabase::class.java, "popular_movies").build()
+    }
 }
 
 @Singleton
