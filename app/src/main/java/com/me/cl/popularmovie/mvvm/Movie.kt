@@ -1,21 +1,17 @@
 package com.me.cl.popularmovie.mvvm
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 /**
  * Created by CL on 10/8/18.
  */
-@Entity
 data class Movie(
         @Expose
         @SerializedName("vote_count")
         val vote_count: Int,
         @Expose
         @SerializedName("id")
-        @PrimaryKey
         val id: Int,
         @Expose
         @SerializedName("video")
@@ -40,7 +36,7 @@ data class Movie(
         val original_title: String,
         @Expose
         @SerializedName("genre_ids")
-        val genre_ids: List<Integer>,
+        val genre_ids: List<Int>,
         @Expose
         @SerializedName("backdrop_path")
         val backdrop_path: String,

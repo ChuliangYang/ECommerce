@@ -2,15 +2,27 @@ package com.me.cl.popularmovie.mvvm.local
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
-import com.me.cl.popularmovie.mvvm.Movie
 
 /**
  * Created by CL on 10/9/18.
  */
 @Entity(tableName = "Favorite_Movies")
 data class FavoriteMovie(
-        @Embedded
-        val movie:Movie
+        val vote_count: Int,
+        @PrimaryKey
+        val id: Int,
+        val video: Boolean,
+        val vote_average: Double,
+        val title: String,
+        val popularity: Double,
+        val poster_path: String,
+        val original_language: String,
+        val original_title: String,
+        val genre_ids: List<Int>,
+        val backdrop_path: String,
+        val adult: Boolean,
+        val overview: String,
+        val release_date: String
 )
 
 @Dao
