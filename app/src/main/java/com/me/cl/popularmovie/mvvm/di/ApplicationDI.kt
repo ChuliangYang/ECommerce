@@ -8,6 +8,7 @@ import com.me.cl.popularmovie.mvvm.SERVER_HOST
 import com.me.cl.popularmovie.mvvm.api.LiveDataCallAdapterFactory
 import com.me.cl.popularmovie.mvvm.api.MovieService
 import com.me.cl.popularmovie.mvvm.local.AppDatabase
+import com.me.cl.template.presentation.di.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -20,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-//(includes = [ViewModelModule::class])
+(includes = [ViewModelModule::class])
 class AppModule {
     @Singleton
     @Provides
@@ -61,7 +62,7 @@ class AppModule {
 @Component(modules = [
     AndroidSupportInjectionModule::class,
     AppModule::class
-//    , MainActivitySubComponentModule::class
+    , MainActivitySubComponentModule::class
 ])
 interface AppComponent{
     @Component.Builder

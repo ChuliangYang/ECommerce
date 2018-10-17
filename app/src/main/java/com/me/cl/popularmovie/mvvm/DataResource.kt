@@ -20,6 +20,10 @@ data class DataResource<out OriginalType>(val loadingStatus:DataStatus, val orig
     fun isSuccess():Boolean{
         return loadingStatus == DataStatus.SUCCESS
     }
+
+    fun <T> transformContent(tranformer:(OriginalType?)->T):DataResource<T>{
+        return DataResource(loadingStatus,tranformer(original),extraMessage)
+    }
 }
 
 enum class DataStatus{
