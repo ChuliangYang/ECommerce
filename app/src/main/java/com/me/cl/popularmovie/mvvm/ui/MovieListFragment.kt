@@ -12,9 +12,12 @@ import com.me.cl.popularmovie.mvvm.CustomLoadingListItemCreator
 import com.me.cl.popularmovie.mvvm.api.CATE_POPULAR
 import com.me.cl.popularmovie.mvvm.api.CATE_TOP_RATED
 import com.me.cl.popularmovie.mvvm.di.Injectable
+import com.me.cl.popularmovie.mvvm.local.AppDatabase
 import com.me.cl.popularmovie.mvvm.ui.adapter.MovieListAdapter
 import com.me.cl.popularmovie.mvvm.viewmodel.MovieListViewModel
 import com.paginate.Paginate
+import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import javax.inject.Inject
 
@@ -35,6 +38,7 @@ class MovieListFragment : Fragment(), Injectable {
 
     var category = MovieCategory.Popular
     var isLoading = false
+    var CATEGORY_KEY="category"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,7 +86,7 @@ class MovieListFragment : Fragment(), Injectable {
             viewModel.getMovieList(category.value,1) { sr_list.isRefreshing = false }
         }
 
-        viewModel.mediatorMoviesLiveData.observe(this, Observer {
+        viewModel.subscribePageListEvent().observe(this, Observer {
             //Maintain page only if the data is correctly loaded to avoid inconsistent problem when error occurs
             val tpage = it?.mPage
             it?.movieList?.original?.let {
@@ -108,16 +112,22 @@ class MovieListFragment : Fragment(), Injectable {
         if(savedInstanceState==null){
             viewModel.getMovieList(category.value, page)
         }else{
-
+            when(savedInstanceState.getString(CATEGORY_KEY)){
+                CATE_POPULAR-> category=MovieCategory.Popular
+                CATE_TOP_RATED-> category=MovieCategory.TOP_RATED
+            }
+            viewModel.restoreMovieList()
         }
-
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater?.inflate(R.menu.menu_movie_list, menu)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(CATEGORY_KEY,category.value)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
