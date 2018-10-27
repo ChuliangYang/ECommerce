@@ -1,4 +1,4 @@
-package com.me.cl.popularmovie.mvvm
+package com.me.cl.popularmovie.mvvm.widget
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

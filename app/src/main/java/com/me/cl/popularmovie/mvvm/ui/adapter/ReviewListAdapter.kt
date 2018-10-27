@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.me.cl.popularmovie.R
 import com.me.cl.popularmovie.databinding.ItemReviewBinding
-import com.me.cl.popularmovie.mvvm.Review
+import com.me.cl.popularmovie.mvvm.model.Review
 
 /**
  * Created by CL on 10/10/18.

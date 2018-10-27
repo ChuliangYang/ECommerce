@@ -1,4 +1,4 @@
-package com.me.cl.popularmovie.mvvm
+package com.me.cl.popularmovie.mvvm.utils
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
@@ -6,6 +6,7 @@ import android.arch.lifecycle.Transformations
 import com.me.cl.popularmovie.mvvm.api.NetworkResponse
 import com.me.cl.popularmovie.mvvm.api.ResponseFailed
 import com.me.cl.popularmovie.mvvm.api.ResponseSuccess
+import com.me.cl.popularmovie.mvvm.model.DataResource
 
 object ReactUtil {
 

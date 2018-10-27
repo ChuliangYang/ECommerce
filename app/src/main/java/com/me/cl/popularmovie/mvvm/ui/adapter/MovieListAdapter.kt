@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.me.cl.popularmovie.R
-import com.me.cl.popularmovie.mvvm.Movie
-import com.me.cl.popularmovie.mvvm.PICTURE_BASE_URL
+import com.me.cl.popularmovie.mvvm.model.Movie
+import com.me.cl.popularmovie.mvvm.api.PICTURE_BASE_URL
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 /**
@@ -23,7 +23,7 @@ class MovieListAdapter(var movieList:MutableList<Movie>):RecyclerView.Adapter<It
 
     override fun onBindViewHolder(p0: ItemViewHolder, p1: Int) {
         p0.itemView.apply{
-            Glide.with(context).load(PICTURE_BASE_URL+movieList[p1].poster_path).into(iv_movie)
+            Glide.with(context).load(PICTURE_BASE_URL +movieList[p1].poster_path).into(iv_movie)
         }
     }
 }

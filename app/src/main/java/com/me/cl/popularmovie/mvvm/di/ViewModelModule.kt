@@ -2,7 +2,7 @@ package com.me.cl.template.presentation.di
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.me.cl.popularmovie.mvvm.MovieDao
+import com.me.cl.popularmovie.mvvm.model.MovieDao
 import com.me.cl.popularmovie.mvvm.di.ViewModelKey
 import com.me.cl.popularmovie.mvvm.local.AppDatabase
 import com.me.cl.popularmovie.mvvm.viewmodel.MovieListViewModel

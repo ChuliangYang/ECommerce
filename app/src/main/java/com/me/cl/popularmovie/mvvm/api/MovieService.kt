@@ -1,7 +1,7 @@
 package com.me.cl.popularmovie.mvvm.api
 
 import android.arch.lifecycle.LiveData
-import com.me.cl.popularmovie.mvvm.MovieResponse
+import com.me.cl.popularmovie.mvvm.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

@@ -1,4 +1,4 @@
-package com.me.cl.popularmovie.mvvm.local
+package com.me.cl.popularmovie.mvvm.model
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*

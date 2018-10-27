@@ -8,16 +8,13 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.view.*
 import com.me.cl.popularmovie.R
-import com.me.cl.popularmovie.mvvm.CustomLoadingListItemCreator
 import com.me.cl.popularmovie.mvvm.api.CATE_POPULAR
 import com.me.cl.popularmovie.mvvm.api.CATE_TOP_RATED
 import com.me.cl.popularmovie.mvvm.di.Injectable
-import com.me.cl.popularmovie.mvvm.local.AppDatabase
 import com.me.cl.popularmovie.mvvm.ui.adapter.MovieListAdapter
 import com.me.cl.popularmovie.mvvm.viewmodel.MovieListViewModel
+import com.me.cl.popularmovie.mvvm.widget.CustomLoadingListItemCreator
 import com.paginate.Paginate
-import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import javax.inject.Inject
 
@@ -34,12 +31,13 @@ class MovieListFragment : Fragment(), Injectable {
     lateinit var movieListAdapter: MovieListAdapter
 
     lateinit var viewModel: MovieListViewModel
+
     var page: Int = 1
 
     var category = MovieCategory.Popular
     var isLoading = false
     var CATEGORY_KEY="category"
-
+    var PAGE_KEY="page"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,12 +57,18 @@ class MovieListFragment : Fragment(), Injectable {
             setHasFixedSize(true)
             movieListAdapter = MovieListAdapter(arrayListOf())
             adapter = movieListAdapter
+            var isInit=true
             Paginate.with(this, object : Paginate.Callbacks {
                 override fun onLoadMore() {
                     this@MovieListFragment.isLoading = true
-                    viewModel.getMovieList(category.value,page.let {
-                        it+1
-                    })
+                    //Avoid first call when initialize
+                    if(isInit){
+                        isInit=false
+                    }else{
+                        viewModel.getMovieList(category.value,page.let {
+                            it+1
+                        })
+                    }
                 }
 
                 override fun isLoading(): Boolean {
@@ -90,20 +94,25 @@ class MovieListFragment : Fragment(), Injectable {
             //Maintain page only if the data is correctly loaded to avoid inconsistent problem when error occurs
             val tpage = it?.mPage
             it?.movieList?.original?.let {
-                if (tpage == 1) {
+                // it's restored from re-create if tpage=0
+                if (tpage==0 || tpage == 1) {
                     movieListAdapter.apply {
+                        isLoading = false
                         movieList.clear()
                         movieList.addAll(it)
                         movieListAdapter.notifyDataSetChanged()
-                        isLoading = false
-                        page = tpage
-                        rv_list.post { rv_list.scrollToPosition(0) }
+                        if(tpage==0){
+                            rv_list.restoreState()
+                        }else{
+                            page = tpage
+                            rv_list.scrollToPosition(0)
+                        }
                     }
                 } else {
                     movieListAdapter.apply {
+                        isLoading = false
                         movieList.addAll(it)
                         notifyDataSetChanged()
-                        isLoading = false
                         page = tpage?:1
                     }
                 }
@@ -116,6 +125,7 @@ class MovieListFragment : Fragment(), Injectable {
                 CATE_POPULAR-> category=MovieCategory.Popular
                 CATE_TOP_RATED-> category=MovieCategory.TOP_RATED
             }
+            page=savedInstanceState.getInt(PAGE_KEY)
             viewModel.restoreMovieList()
         }
     }
@@ -128,6 +138,7 @@ class MovieListFragment : Fragment(), Injectable {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString(CATEGORY_KEY,category.value)
+        outState.putInt(PAGE_KEY,page)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

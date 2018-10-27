@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.me.cl.popularmovie.R
-import com.me.cl.popularmovie.mvvm.Trailer
+import com.me.cl.popularmovie.mvvm.model.Trailer
 import kotlinx.android.synthetic.main.item_trailer.view.*
 
 /**

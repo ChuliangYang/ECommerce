@@ -2,9 +2,9 @@ package com.me.cl.popularmovie.mvvm.di
 
 import android.app.Application
 import android.arch.persistence.room.Room
-import com.me.cl.popularmovie.mvvm.API_KEY
+import com.me.cl.popularmovie.mvvm.api.API_KEY
 import com.me.cl.popularmovie.mvvm.MovieApplication
-import com.me.cl.popularmovie.mvvm.SERVER_HOST
+import com.me.cl.popularmovie.mvvm.api.SERVER_HOST
 import com.me.cl.popularmovie.mvvm.api.LiveDataCallAdapterFactory
 import com.me.cl.popularmovie.mvvm.api.MovieService
 import com.me.cl.popularmovie.mvvm.local.AppDatabase
