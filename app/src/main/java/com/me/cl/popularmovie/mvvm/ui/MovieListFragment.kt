@@ -4,7 +4,6 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.view.*
 import com.me.cl.popularmovie.R
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_movie_list.*
 import javax.inject.Inject
 
 
-class MovieListFragment : Fragment(), Injectable {
+class MovieListFragment :BaseFragment(), Injectable {
 
     companion object {
         fun newInstance() = MovieListFragment()
