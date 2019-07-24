@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tb_title"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/Widget.AppCompat.Toolbar"
-        android:background="?attr/colorPrimary"
-        >
-    </android.support.v7.widget.Toolbar>
-
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/MatchMatch.Vertical"
+        android:gravity="bottom"
+>
     <FrameLayout
-        android:id="@+id/fl_content"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_title">
+            android:id="@+id/mContaier"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
-    </FrameLayout>
-</android.support.constraint.ConstraintLayout>
+
+    <com.kotlin.base.widgets.BottomNavBar
+            android:id="@+id/mBottomNavBar"
+            style="@style/MatchWrap"
+            android:layout_gravity="bottom"
+    />
+</LinearLayout>
