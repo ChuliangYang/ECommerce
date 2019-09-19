@@ -1,8 +1,5 @@
 package com.kotlin.order.common
 
-/*
-    订单状态
- */
 class OrderStatus {
     companion object {
         const val ORDER_ALL = 0//全部

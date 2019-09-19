@@ -11,9 +11,6 @@ import com.kotlin.order.R
 import com.kotlin.order.data.protocol.ShipAddress
 import kotlinx.android.synthetic.main.layout_address_item.view.*
 
-/*
-    收货地址数据适配
- */
 class ShipAddressAdapter(context: Context) : BaseRecyclerViewAdapter<ShipAddress, ShipAddressAdapter.ViewHolder>(context) {
 
     var mOptClickListener:OnOptClickListener? = null
@@ -61,9 +58,6 @@ class ShipAddressAdapter(context: Context) : BaseRecyclerViewAdapter<ShipAddress
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
-    /*
-        对应操作接口
-     */
     interface OnOptClickListener{
         fun onSetDefault(address:ShipAddress)
         fun onEdit(address:ShipAddress)

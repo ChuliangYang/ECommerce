@@ -25,9 +25,6 @@ import kotlinx.android.synthetic.main.activity_order_confirm.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-/*
-    订单确认页
- */
 @Route(path = RouterPath.OrderCenter.PATH_ORDER_CONFIRM)
 class OrderConfirmActivity:BaseMvpActivity<OrderConfirmPresenter>(),OrderConfirmView {
     @Autowired(name = ProviderConstant.KEY_ORDER_ID)
@@ -37,9 +34,6 @@ class OrderConfirmActivity:BaseMvpActivity<OrderConfirmPresenter>(),OrderConfirm
     private lateinit var mAdapter:OrderGoodsAdapter
     private var mCurrentOrder:Order? = null
 
-    /*
-        Dagger注册
-     */
     override fun injectComponent() {
         DaggerOrderComponent.builder().activityComponent(mActivityComponent).orderModule(OrderModule()).build().inject(this)
         mPresenter.mView = this
@@ -54,9 +48,6 @@ class OrderConfirmActivity:BaseMvpActivity<OrderConfirmPresenter>(),OrderConfirm
         loadData()
     }
 
-    /*
-        初始化视图
-     */
     private fun initView() {
         mShipView.onClick {
             startActivity<ShipAddressActivity>()
@@ -71,15 +62,11 @@ class OrderConfirmActivity:BaseMvpActivity<OrderConfirmPresenter>(),OrderConfirm
             }
         }
 
-        //订单中商品列表
         mOrderGoodsRv.layoutManager = LinearLayoutManager(this)
         mAdapter = OrderGoodsAdapter(this)
         mOrderGoodsRv.adapter = mAdapter
     }
 
-    /*
-        初始化选择收货人事件监听
-     */
     private fun initObserve() {
         Bus.observe<SelectAddressEvent>()
                 .subscribe{
@@ -95,16 +82,10 @@ class OrderConfirmActivity:BaseMvpActivity<OrderConfirmPresenter>(),OrderConfirm
 
     }
 
-    /*
-        加载订单数据
-     */
     private fun loadData() {
         mPresenter.getOrderById(mOrderId)
     }
 
-    /*
-        获取订单回调
-     */
     override fun onGetOrderByIdResult(result: Order) {
         mCurrentOrder = result
         mAdapter.setData(result.orderGoodsList)
@@ -113,17 +94,11 @@ class OrderConfirmActivity:BaseMvpActivity<OrderConfirmPresenter>(),OrderConfirm
         updateAddressView()
     }
 
-    /*
-        取消事件监听
-     */
     override fun onDestroy() {
         super.onDestroy()
         Bus.unregister(this)
     }
 
-    /*
-        根据是否有收货人信息，更新视图
-     */
     private fun updateAddressView() {
         mCurrentOrder?.let {
             if (it.shipAddress == null){
@@ -140,9 +115,6 @@ class OrderConfirmActivity:BaseMvpActivity<OrderConfirmPresenter>(),OrderConfirm
         }
     }
 
-    /*
-        提交订单回调
-     */
     override fun onSubmitOrderResult(result: Boolean) {
         toast("订单提交成功")
         ARouter.getInstance().build(RouterPath.PaySDK.PATH_PAY)

@@ -8,9 +8,6 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-/*
-    Activity级别Module
- */
 @Module
 class ActivityModule(private val activity: Activity) {
 

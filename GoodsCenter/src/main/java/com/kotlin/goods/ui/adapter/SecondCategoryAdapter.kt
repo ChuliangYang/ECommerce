@@ -11,9 +11,6 @@ import com.kotlin.goods.R
 import com.kotlin.goods.data.protocol.Category
 import kotlinx.android.synthetic.main.layout_second_category_item.view.*
 
-/*
-    二级商品分类Adapter
- */
 class SecondCategoryAdapter(context: Context): BaseRecyclerViewAdapter<Category, SecondCategoryAdapter.ViewHolder>(context) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext)
@@ -25,9 +22,7 @@ class SecondCategoryAdapter(context: Context): BaseRecyclerViewAdapter<Category,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val model = dataList[position]
-        //分类图片
         holder.itemView.mCategoryIconIv.loadUrl(model.categoryIcon)
-        //分类名称
         holder.itemView.mSecondCategoryNameTv.text = model.categoryName
 
     }

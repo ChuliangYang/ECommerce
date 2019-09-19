@@ -9,9 +9,6 @@ import com.kotlin.goods.ui.fragment.CartFragment
 import com.kotlin.goods.ui.fragment.GoodsDetailTabOneFragment
 import dagger.Component
 
-/*
-    购物车Component
- */
 @PerComponentScope
 @Component(dependencies = arrayOf(ActivityComponent::class),modules = arrayOf(CartModule::class))
 interface CartComponent {

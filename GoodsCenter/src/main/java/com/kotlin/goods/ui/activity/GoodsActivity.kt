@@ -19,9 +19,6 @@ import com.kotlin.goods.ui.adapter.GoodsAdapter
 import kotlinx.android.synthetic.main.activity_goods.*
 import org.jetbrains.anko.startActivity
 
-/*
-    商品列表Activity
- */
 class GoodsActivity : BaseMvpActivity<GoodsListPresenter>(), GoodsListView, BGARefreshLayout.BGARefreshLayoutDelegate {
 
     private lateinit var mGoodsAdapter: GoodsAdapter
@@ -37,9 +34,6 @@ class GoodsActivity : BaseMvpActivity<GoodsListPresenter>(), GoodsListView, BGAR
         loadData()
     }
 
-    /*
-        初始化视图
-     */
     private fun initView() {
         mGoodsRv.layoutManager = GridLayoutManager(this, 2)
         mGoodsAdapter = GoodsAdapter(this)
@@ -53,9 +47,6 @@ class GoodsActivity : BaseMvpActivity<GoodsListPresenter>(), GoodsListView, BGAR
 
     }
 
-    /*
-        初始化刷新视图
-     */
     private fun initRefreshLayout() {
         mRefreshLayout.setDelegate(this)
         val viewHolder = BGANormalRefreshViewHolder(this, true)
@@ -64,9 +55,6 @@ class GoodsActivity : BaseMvpActivity<GoodsListPresenter>(), GoodsListView, BGAR
         mRefreshLayout.setRefreshViewHolder(viewHolder)
     }
 
-    /*
-        加载数据
-     */
     private fun loadData() {
         if (intent.getIntExtra(GoodsConstant.KEY_SEARCH_GOODS_TYPE, 0) != 0) {
             mMultiStateView.startLoading()
@@ -77,17 +65,11 @@ class GoodsActivity : BaseMvpActivity<GoodsListPresenter>(), GoodsListView, BGAR
         }
     }
 
-    /*
-        Dagger2注册
-     */
     override fun injectComponent() {
         DaggerGoodsComponent.builder().activityComponent(mActivityComponent).goodsModule(GoodsModule()).build().inject(this)
         mPresenter.mView = this
     }
 
-    /*
-        获取列表后回调
-     */
     override fun onGetGoodsListResult(result: MutableList<Goods>?) {
         mRefreshLayout.endLoadingMore()
         mRefreshLayout.endRefreshing()
@@ -103,16 +85,10 @@ class GoodsActivity : BaseMvpActivity<GoodsListPresenter>(), GoodsListView, BGAR
         }
     }
 
-    /*
-        数据为空
-     */
     override fun onDataIsNull() {
         mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
     }
 
-    /*
-        上拉加载更多
-     */
     override fun onBGARefreshLayoutBeginLoadingMore(refreshLayout: BGARefreshLayout?): Boolean {
         return if (mCurrentPage < mMaxPage) {
             mCurrentPage++
@@ -123,9 +99,6 @@ class GoodsActivity : BaseMvpActivity<GoodsListPresenter>(), GoodsListView, BGAR
         }
     }
 
-    /*
-        下拉加载第一页
-     */
     override fun onBGARefreshLayoutBeginRefreshing(refreshLayout: BGARefreshLayout?) {
         mCurrentPage = 1
         loadData()

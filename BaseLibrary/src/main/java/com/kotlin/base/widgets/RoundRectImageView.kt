@@ -13,19 +13,11 @@ import android.widget.ImageView
 import com.kotlin.base.R
 import org.jetbrains.anko.dimen
 
-/*
-    圆角图标
-    左上，右上为圆角
- */
 class RoundRectImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr:Int = 0): ImageView(context,attrs,defStyleAttr) {
     val radius = dimen(R.dimen.common_radius).toFloat()
-    //设置圆角为左上和右上
     private val radiusArray:FloatArray = floatArrayOf(radius,radius,radius,radius,0.0f,0.0f,0.0f,0.0f)
 
 
-    /*
-        绘制圆角
-     */
     private fun drawRoundAngle(paramCanvas: Canvas) {
         val paint = Paint()
         paint.isAntiAlias = true
@@ -35,10 +27,6 @@ class RoundRectImageView @JvmOverloads constructor(context: Context, attrs: Attr
         path.fillType = Path.FillType.INVERSE_WINDING
         paramCanvas.drawPath(path, paint)
     }
-
-    /*
-        重新绘制
-     */
     override fun draw(paramCanvas: Canvas) {
         var bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         var localCanvas = Canvas(bitmap)

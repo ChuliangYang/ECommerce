@@ -8,9 +8,6 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.kotlin.order.common.OrderConstant
 import com.kotlin.order.ui.fragment.OrderFragment
 
-/*
-    订单Tab对应ViewPager
- */
 class OrderVpAdapter(fm: FragmentManager, context: Context)
     : FragmentPagerAdapter(fm) {
 

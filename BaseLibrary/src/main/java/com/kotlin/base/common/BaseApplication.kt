@@ -7,9 +7,7 @@ import com.kotlin.base.injection.component.AppComponent
 import com.kotlin.base.injection.component.DaggerAppComponent
 import com.kotlin.base.injection.module.AppModule
 
-/*
-    Application 基类
- */
+
 open class BaseApplication : MultiDexApplication() {
 
     lateinit var appComponent: AppComponent

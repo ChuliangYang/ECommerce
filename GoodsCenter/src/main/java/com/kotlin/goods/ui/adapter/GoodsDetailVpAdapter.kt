@@ -6,9 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.kotlin.goods.ui.fragment.GoodsDetailTabOneFragment
 import com.kotlin.goods.ui.fragment.GoodsDetailTabTwoFragment
 
-/*
-    商品详情ViewPager Adapter
- */
 class GoodsDetailVpAdapter(fm:FragmentManager)
     :FragmentPagerAdapter(fm) {
 

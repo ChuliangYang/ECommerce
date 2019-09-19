@@ -6,10 +6,6 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.kotlin.provider.PushProvider
 import com.kotlin.provider.router.RouterPath
 
-/*
-    模块间接口调用
-    提供PushId的实现
- */
 @Route(path = RouterPath.MessageCenter.PATH_MESSAGE_PUSH)
 class PushProviderImpl:PushProvider {
 

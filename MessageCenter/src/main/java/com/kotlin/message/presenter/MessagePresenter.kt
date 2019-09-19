@@ -8,17 +8,11 @@ import com.kotlin.message.presenter.view.MessageView
 import com.kotlin.message.service.MessageService
 import javax.inject.Inject
 
-/*
-    消息列表 Presenter
- */
 class MessagePresenter @Inject constructor() : BasePresenter<MessageView>() {
 
     @Inject
     lateinit var messageService: MessageService
 
-    /*
-        获取消息列表
-     */
     fun getMessageList() {
         if (!checkNetWork()) {
             return

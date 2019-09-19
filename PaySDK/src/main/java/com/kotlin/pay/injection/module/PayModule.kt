@@ -5,9 +5,6 @@ import com.kotlin.pay.service.impl.PayServiceImpl
 import dagger.Module
 import dagger.Provides
 
-/*
-    支付 Module
- */
 @Module
 class PayModule {
 

@@ -6,9 +6,6 @@ import com.kotlin.goods.injection.module.CategoryModule
 import com.kotlin.goods.ui.fragment.CategoryFragment
 import dagger.Component
 
-/*
-    商品分类Component
- */
 @PerComponentScope
 @Component(dependencies = arrayOf(ActivityComponent::class),modules = arrayOf(CategoryModule::class))
 interface CategoryComponent {

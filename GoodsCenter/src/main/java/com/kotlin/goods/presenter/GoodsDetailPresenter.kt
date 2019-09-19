@@ -10,10 +10,6 @@ import com.kotlin.goods.presenter.view.GoodsDetailView
 import com.kotlin.goods.service.CartService
 import com.kotlin.goods.service.GoodsService
 import javax.inject.Inject
-
-/*
-    商品详情 Presenter
- */
 class GoodsDetailPresenter @Inject constructor() : BasePresenter<GoodsDetailView>() {
 
     @Inject
@@ -22,9 +18,6 @@ class GoodsDetailPresenter @Inject constructor() : BasePresenter<GoodsDetailView
     @Inject
     lateinit var cartService: CartService
 
-    /*
-        获取商品详情
-     */
     fun getGoodsDetailList(goodsId: Int) {
         if (!checkNetWork()) {
             return
@@ -38,9 +31,6 @@ class GoodsDetailPresenter @Inject constructor() : BasePresenter<GoodsDetailView
 
     }
 
-    /*
-        加入购物车
-     */
     fun addCart(goodsId: Int, goodsDesc: String, goodsIcon: String, goodsPrice: Long,
                            goodsCount: Int, goodsSku: String) {
         if (!checkNetWork()) {

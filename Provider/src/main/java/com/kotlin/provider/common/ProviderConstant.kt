@@ -1,8 +1,5 @@
 package com.kotlin.provider.common
 
-/*
-    业务常量
- */
 class ProviderConstant {
     companion object {
         //用户名称

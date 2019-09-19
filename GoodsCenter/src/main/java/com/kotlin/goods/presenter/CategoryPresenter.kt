@@ -8,18 +8,12 @@ import com.kotlin.goods.presenter.view.CategoryView
 import com.kotlin.goods.service.CategoryService
 import javax.inject.Inject
 
-/*
-    商品分类 Presenter
- */
 class CategoryPresenter @Inject constructor() : BasePresenter<CategoryView>() {
 
     @Inject
     lateinit var categoryService: CategoryService
 
 
-    /*
-        获取商品分类列表
-     */
     fun getCategory(parentId:Int) {
         if (!checkNetWork()) {
             return

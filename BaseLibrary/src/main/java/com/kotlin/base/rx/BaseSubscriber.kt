@@ -6,9 +6,6 @@ import io.reactivex.disposables.Disposable
 import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
 
-/*
-    Rx订阅者默认实现
- */
 open class BaseSubscriber<T>(val baseView: BaseView) : Observer<T> {
 
     override fun onSubscribe(p0: Disposable) {

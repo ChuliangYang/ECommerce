@@ -23,16 +23,10 @@ import kotlinx.android.synthetic.main.activity_address.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-/*
-    收货人信息列表页
- */
 class ShipAddressActivity:BaseMvpActivity<ShipAddressPresenter>(),ShipAddressView {
 
     private lateinit var mAdapter:ShipAddressAdapter
 
-    /*
-        Dagger注册
-     */
     override fun injectComponent() {
         DaggerShipAddressComponent.builder().activityComponent(mActivityComponent).shipAddressModule(ShipAddressModule()).build().inject(this)
         mPresenter.mView = this
@@ -50,9 +44,6 @@ class ShipAddressActivity:BaseMvpActivity<ShipAddressPresenter>(),ShipAddressVie
         loadData()
     }
 
-    /*
-        初始化视图
-     */
     private fun initView() {
         mAddressRv.layoutManager = LinearLayoutManager(this)
         mAdapter = ShipAddressAdapter(this)
@@ -94,17 +85,11 @@ class ShipAddressActivity:BaseMvpActivity<ShipAddressPresenter>(),ShipAddressVie
         }
     }
 
-    /*
-        加载数据
-     */
     private fun loadData() {
         mMultiStateView.startLoading()
         mPresenter.getShipAddressList()
     }
 
-    /*
-        获取收货人信息回调
-     */
     override fun onGetShipAddressResult(result: MutableList<ShipAddress>?) {
         if (result != null && result.size > 0) {
             mAdapter.setData(result)
@@ -112,24 +97,15 @@ class ShipAddressActivity:BaseMvpActivity<ShipAddressPresenter>(),ShipAddressVie
         }
     }
 
-    /*
-        数据为空
-     */
     override fun onDataIsNull() {
         mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
     }
 
-    /*
-        设置默认收货人回调
-     */
     override fun onSetDefaultResult(result: Boolean) {
         toast("设置默认成功")
         loadData()
     }
 
-    /*
-        删除收货人回调
-     */
     override fun onDeleteResult(result: Boolean) {
         toast("删除成功")
         loadData()

@@ -8,15 +8,11 @@ import com.kotlin.base.R
 import kotlinx.android.synthetic.main.layout_label_textview.view.*
 
 
-/*
- * LabelTextView封装
- */
 class LabelTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : FrameLayout(context, attrs, defStyleAttr) {
 
     private var mLabelText: CharSequence? = null
     private var mContentText: CharSequence? = null
 
-    //初始化属性
     init {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LabelText)
         this.mLabelText = typedArray.getText(R.styleable.LabelText_labelText)
@@ -25,7 +21,6 @@ class LabelTextView @JvmOverloads constructor(context: Context, attrs: Attribute
         typedArray.recycle()
     }
 
-    //初始化视图
     private fun initView() {
         View.inflate(context, R.layout.layout_label_textview, this)
 
@@ -39,9 +34,6 @@ class LabelTextView @JvmOverloads constructor(context: Context, attrs: Attribute
 
     }
 
-    /*
-        设置内容文本
-     */
     fun setContentText(text:String){
         mContentTv.text = text
     }

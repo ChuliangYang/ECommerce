@@ -24,19 +24,11 @@ import com.kotlin.goods.ui.adapter.TopCategoryAdapter
 import kotlinx.android.synthetic.main.fragment_category.*
 import org.jetbrains.anko.support.v4.startActivity
 
-/*
-    商品分类 Fragment
- */
 class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
 
-    //一级分类Adapter
     lateinit var topAdapter: TopCategoryAdapter
-    //二级分类Adapter
     lateinit var secondAdapter: SecondCategoryAdapter
 
-    /*
-        Dagger注册
-     */
     override fun injectComponent() {
         DaggerCategoryComponent.builder().activityComponent(mActivityComponent).categoryModule(CategoryModule()).build().inject(this)
         mPresenter.mView = this
@@ -54,9 +46,6 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
         loadData()
     }
 
-    /*
-        初始化视图
-     */
     private fun initView() {
 
         mTopCategoryRv.layoutManager = LinearLayoutManager(context)
@@ -85,9 +74,6 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
 
     }
 
-    /*
-        加载数据
-     */
     private fun loadData(parentId: Int = 0) {
         if (parentId != 0) {
             mMultiStateView.startLoading()
@@ -97,9 +83,6 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
 
     }
 
-    /*
-        获取商品分类 回调
-     */
     override fun onGetCategoryResult(result: MutableList<Category>?) {
         if (result != null && result.size > 0) {
             if (result[0].parentId == 0) {
@@ -116,7 +99,6 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
     }
 
     override fun onDataIsNull() {
-        //没有数据
         mTopCategoryIv.setVisible(false)
         mCategoryTitleTv.setVisible(false)
         mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY

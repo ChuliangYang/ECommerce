@@ -12,9 +12,6 @@ import com.kotlin.goods.R
 import com.kotlin.goods.event.GoodsDetailImageEvent
 import kotlinx.android.synthetic.main.fragment_goods_detail_tab_two.*
 
-/*
-    商品详情Tab Two
- */
 class GoodsDetailTabTwoFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,9 +24,6 @@ class GoodsDetailTabTwoFragment : BaseFragment() {
         initObserve()
     }
 
-    /*
-        初始化监听，商品详情获取成功后，加载当前页面
-     */
     private fun initObserve() {
         Bus.observe<GoodsDetailImageEvent>()
                 .subscribe {

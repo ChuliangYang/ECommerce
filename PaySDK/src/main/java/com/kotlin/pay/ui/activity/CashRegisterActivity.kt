@@ -23,22 +23,14 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
-/*
-    收银台界面
- */
 @Route(path = RouterPath.PaySDK.PATH_PAY)
 class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickListener {
-    /*
-        Dagger注册
-     */
     override fun injectComponent() {
         DaggerPayComponent.builder().activityComponent(mActivityComponent).payModule(PayModule()).build().inject(this)
         mPresenter.mView = this
     }
 
-    //订单号
     private var mOrderId:Int = 0
-    //订单总价格
     private var mTotalPrice:Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,9 +45,6 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
         initData()
     }
 
-    /*
-        初始化数据
-     */
     private fun initData() {
         mOrderId = intent.getIntExtra(ProviderConstant.KEY_ORDER_ID,-1)
         mTotalPrice = intent.getLongExtra(ProviderConstant.KEY_ORDER_PRICE,-1)
@@ -63,9 +52,6 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
         mTotalPriceTv.text = YuanFenConverter.changeF2YWithUnit(mTotalPrice)
     }
 
-    /*
-        初始化视图
-     */
     private fun initView() {
         mAlipayTypeTv.isSelected = true
         mAlipayTypeTv.onClick(this)
@@ -73,10 +59,6 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
         mBankCardTypeTv.onClick(this)
         mPayBtn.onClick(this)
     }
-
-    /*
-        获取支付签名回调
-     */
     override fun onGetSignResult(result: String) {
         doAsync {
             val resultMap:Map<String,String> = PayTask(this@CashRegisterActivity).payV2(result,true)
@@ -91,17 +73,11 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
         }
     }
 
-    /*
-        支付订单回调
-     */
     override fun onPayOrderResult(result: Boolean) {
         toast("支付成功")
         finish()
     }
 
-    /*
-        点击事件
-     */
     override fun onClick(v: View) {
         when(v.id){
             R.id.mAlipayTypeTv -> {updatePayType(true,false,false)}
@@ -113,9 +89,6 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
         }
     }
 
-    /*
-        选择支付类型，UI变化
-     */
     private fun updatePayType(isAliPay:Boolean,isWeixinPay:Boolean,isBankCardPay:Boolean){
         mAlipayTypeTv.isSelected = isAliPay
         mWeixinTypeTv.isSelected = isWeixinPay

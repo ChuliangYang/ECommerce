@@ -7,16 +7,10 @@ import com.kotlin.pay.presenter.view.PayView
 import com.kotlin.pay.service.PayService
 import javax.inject.Inject
 
-/*
-    支付Presenter
- */
 class PayPresenter @Inject constructor() : BasePresenter<PayView>() {
     @Inject
     lateinit var service: PayService
 
-    /*
-        获取支付签名
-     */
     fun getPaySign(orderId: Int, totalPrice: Long) {
         if (!checkNetWork()) {
             return
@@ -30,9 +24,6 @@ class PayPresenter @Inject constructor() : BasePresenter<PayView>() {
 
     }
 
-    /*
-        订单支付，同步订单状态
-     */
     fun payOrder(orderId: Int) {
         if (!checkNetWork()) {
             return

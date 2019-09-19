@@ -17,10 +17,6 @@ import com.kotlin.order.common.OrderStatus
 import com.kotlin.order.data.protocol.Order
 import kotlinx.android.synthetic.main.layout_order_item.view.*
 import org.jetbrains.anko.dip
-
-/*
-    订单列表数据适配
- */
 class OrderAdapter(context: Context) : BaseRecyclerViewAdapter<Order, OrderAdapter.ViewHolder>(context) {
 
     var listener: OnOptClickListener? = null
@@ -34,9 +30,6 @@ class OrderAdapter(context: Context) : BaseRecyclerViewAdapter<Order, OrderAdapt
         return ViewHolder(view)
     }
 
-    /*
-        绑定数据
-     */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val model = dataList[position]
@@ -96,22 +89,18 @@ class OrderAdapter(context: Context) : BaseRecyclerViewAdapter<Order, OrderAdapt
                 setOptVisible(false,false,false,holder)
             }
         }
-
-        //设置确认收货点击事件
         holder.itemView.mConfirmBtn.onClick {
             listener?.let {
                 it.onOptClick(OrderConstant.OPT_ORDER_CONFIRM,model)
             }
         }
 
-        //设置支付订单点击事件
         holder.itemView.mPayBtn.onClick {
             listener?.let {
                 it.onOptClick(OrderConstant.OPT_ORDER_PAY,model)
             }
         }
 
-        //设置取消订单点击事件
         holder.itemView.mCancelBtn.onClick {
             listener?.let {
                 it.onOptClick(OrderConstant.OPT_ORDER_CANCEL,model)
@@ -122,9 +111,6 @@ class OrderAdapter(context: Context) : BaseRecyclerViewAdapter<Order, OrderAdapt
 
     }
 
-    /*
-        设置操作按钮显示或隐藏
-     */
     private fun setOptVisible(confirmVisible: Boolean, waitPayVisible: Boolean, cancelVisible: Boolean,holder: ViewHolder) {
         holder.itemView.mConfirmBtn.setVisible(confirmVisible)
         holder.itemView.mPayBtn.setVisible(waitPayVisible)

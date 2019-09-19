@@ -9,9 +9,6 @@ import com.kotlin.message.R
 import android.widget.TextView
 import org.jetbrains.anko.*
 
-/*
-    公告组件封装
- */
 class NewsFlipperView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : FrameLayout(context, attrs, defStyleAttr) {
     private val mFlipperView: ViewFlipper
 
@@ -25,9 +22,6 @@ class NewsFlipperView @JvmOverloads constructor(context: Context, attrs: Attribu
     }
 
 
-    /*
-        构建公告
-     */
     private fun buildNewsView(text: String): View {
         val textView = TextView(context)
         textView.text = text
@@ -38,9 +32,6 @@ class NewsFlipperView @JvmOverloads constructor(context: Context, attrs: Attribu
         return textView
     }
 
-    /*
-        设置公告数据
-     */
     fun setData(data: Array<String>) {
         for (text in data) {
             mFlipperView.addView(buildNewsView(text))

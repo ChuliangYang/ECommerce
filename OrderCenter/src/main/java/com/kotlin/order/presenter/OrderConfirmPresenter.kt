@@ -8,17 +8,11 @@ import com.kotlin.order.presenter.view.OrderConfirmView
 import com.kotlin.order.service.OrderService
 import javax.inject.Inject
 
-/*
-    订单确认页 Presenter
- */
 class OrderConfirmPresenter @Inject constructor() : BasePresenter<OrderConfirmView>() {
 
     @Inject
     lateinit var orderService:OrderService
 
-    /*
-        根据ID获取订单
-     */
     fun getOrderById(orderId: Int) {
         if (!checkNetWork()) {
             return
@@ -32,9 +26,6 @@ class OrderConfirmPresenter @Inject constructor() : BasePresenter<OrderConfirmVi
 
     }
 
-    /*
-        提交订单
-     */
     fun submitOrder(order: Order) {
         if (!checkNetWork()) {
             return

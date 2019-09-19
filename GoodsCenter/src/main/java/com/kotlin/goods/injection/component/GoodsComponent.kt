@@ -10,9 +10,6 @@ import com.kotlin.goods.ui.fragment.CategoryFragment
 import com.kotlin.goods.ui.fragment.GoodsDetailTabOneFragment
 import dagger.Component
 
-/*
-    商品Component
- */
 @PerComponentScope
 @Component(dependencies = arrayOf(ActivityComponent::class),modules = arrayOf(GoodsModule::class,CartModule::class))
 interface GoodsComponent {

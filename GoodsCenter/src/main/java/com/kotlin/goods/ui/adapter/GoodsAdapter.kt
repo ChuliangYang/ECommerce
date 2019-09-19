@@ -14,9 +14,6 @@ import com.kotlin.goods.R
 import com.kotlin.goods.data.protocol.Goods
 import kotlinx.android.synthetic.main.layout_goods_item.view.*
 
-/*
-    商品数据适配器
- */
 class GoodsAdapter(context: Context) : BaseRecyclerViewAdapter<Goods, GoodsAdapter.ViewHolder>(context) {
 
    override fun onCreateViewHolder(parent: ViewGroup,
@@ -31,13 +28,9 @@ class GoodsAdapter(context: Context) : BaseRecyclerViewAdapter<Goods, GoodsAdapt
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val model = dataList[position]
-        //商品图标
         holder.itemView.mGoodsIconIv.loadUrl(model.goodsDefaultIcon)
-        //商品描述
         holder.itemView.mGoodsDescTv.text = model.goodsDesc
-        //商品价格
         holder.itemView.mGoodsPriceTv.text = YuanFenConverter.changeF2YWithUnit(model.goodsDefaultPrice)
-        //商品销量及库存
         holder.itemView.mGoodsSalesStockTv.text = "销量${model.goodsSalesCount}件     库存${model.goodsStockCount}"
     }
 

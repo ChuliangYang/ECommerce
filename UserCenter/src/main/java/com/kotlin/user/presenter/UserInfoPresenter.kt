@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 /*
     编辑用户资料Presenter
- */
+*/
 class UserInfoPresenter @Inject constructor() : BasePresenter<UserInfoView>() {
 
     @Inject

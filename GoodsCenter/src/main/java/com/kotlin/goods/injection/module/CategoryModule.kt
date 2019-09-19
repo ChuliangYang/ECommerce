@@ -5,9 +5,6 @@ import com.kotlin.goods.service.impl.CategoryServiceImpl
 import dagger.Module
 import dagger.Provides
 
-/*
-    商品分类Module
- */
 @Module
 class CategoryModule {
 

@@ -10,14 +10,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-/*
-    Retrofit工厂，单例
- */
 class RetrofitFactory private constructor(){
 
-    /*
-        单例实现
-     */
     companion object {
         val instance:RetrofitFactory by lazy { RetrofitFactory() }
     }
@@ -25,9 +19,7 @@ class RetrofitFactory private constructor(){
     private val interceptor:Interceptor
     private val retrofit:Retrofit
 
-    //初始化
     init {
-        //通用拦截
         interceptor = Interceptor {
             chain -> val request = chain.request()
                 .newBuilder()
@@ -39,7 +31,6 @@ class RetrofitFactory private constructor(){
             chain.proceed(request)
         }
 
-        //Retrofit实例化
         retrofit = Retrofit.Builder()
                 .baseUrl(BaseConstant.SERVER_ADDRESS)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -48,9 +39,6 @@ class RetrofitFactory private constructor(){
                 .build()
     }
 
-    /*
-        OKHttp创建
-     */
     private fun initClient():OkHttpClient{
         return OkHttpClient.Builder()
                 .addInterceptor(initLogInterceptor())
@@ -60,18 +48,12 @@ class RetrofitFactory private constructor(){
                 .build()
     }
 
-    /*
-        日志拦截器
-     */
     private fun initLogInterceptor():HttpLoggingInterceptor{
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return interceptor
     }
 
-    /*
-        具体服务实例化
-     */
     fun <T> create(service:Class<T>):T{
         return retrofit.create(service)
     }

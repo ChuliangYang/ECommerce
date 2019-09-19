@@ -8,18 +8,12 @@ import com.kotlin.goods.presenter.view.CartListView
 import com.kotlin.goods.service.CartService
 import javax.inject.Inject
 
-/*
-    购物车 Presenter
- */
 class CartListPresenter @Inject constructor() : BasePresenter<CartListView>() {
 
     @Inject
     lateinit var cartService: CartService
 
 
-    /*
-        获取购物车列表
-     */
     fun getCartList() {
         if (!checkNetWork()) {
             return
@@ -32,10 +26,6 @@ class CartListPresenter @Inject constructor() : BasePresenter<CartListView>() {
         }, lifecycleProvider)
 
     }
-
-    /*
-        删除购物车商品
-     */
     fun deleteCartList(list: List<Int>) {
         if (!checkNetWork()) {
             return
@@ -49,9 +39,6 @@ class CartListPresenter @Inject constructor() : BasePresenter<CartListView>() {
 
     }
 
-    /*
-        提交购物车商品
-     */
     fun submitCart(list: MutableList<CartGoods>, totalPrice: Long) {
         if (!checkNetWork()) {
             return

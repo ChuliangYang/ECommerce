@@ -5,9 +5,6 @@ import com.kotlin.goods.service.impl.GoodsServiceImpl
 import dagger.Module
 import dagger.Provides
 
-/*
-    商品Module
- */
 @Module
 class GoodsModule {
 

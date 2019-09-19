@@ -8,17 +8,11 @@ import com.kotlin.order.presenter.view.ShipAddressView
 import com.kotlin.order.service.ShipAddressService
 import javax.inject.Inject
 
-/*
-    收货人列表Presenter
- */
 class ShipAddressPresenter @Inject constructor() : BasePresenter<ShipAddressView>() {
 
     @Inject
     lateinit var shipAddressService: ShipAddressService
 
-    /*
-        获取收货人列表
-     */
     fun getShipAddressList() {
         if (!checkNetWork()) {
             return
@@ -32,9 +26,6 @@ class ShipAddressPresenter @Inject constructor() : BasePresenter<ShipAddressView
 
     }
 
-    /*
-        设置默认收货人信息
-     */
     fun setDefaultShipAddress(address:ShipAddress) {
         if (!checkNetWork()) {
             return
@@ -48,9 +39,6 @@ class ShipAddressPresenter @Inject constructor() : BasePresenter<ShipAddressView
 
     }
 
-    /*
-        删除收货人信息
-     */
     fun deleteShipAddress(id:Int) {
         if (!checkNetWork()) {
             return

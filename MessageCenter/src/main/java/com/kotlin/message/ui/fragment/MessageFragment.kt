@@ -19,9 +19,6 @@ import com.kotlin.message.ui.adapter.MessageAdapter
 import com.kotlin.provider.event.MessageBadgeEvent
 import kotlinx.android.synthetic.main.fragment_message.*
 
-/*
-    消息列表Fragment
- */
 class MessageFragment:BaseMvpFragment<MessagePresenter>(),MessageView {
 
     private lateinit var mAdapter:MessageAdapter
@@ -37,9 +34,6 @@ class MessageFragment:BaseMvpFragment<MessagePresenter>(),MessageView {
 
     }
 
-    /*
-        初始化视图
-     */
     private fun initView() {
         mMessageRv.layoutManager = LinearLayoutManager(context)
         mAdapter = MessageAdapter(context!!)
@@ -51,25 +45,16 @@ class MessageFragment:BaseMvpFragment<MessagePresenter>(),MessageView {
         loadData()
     }
 
-    /*
-        加载数据
-     */
     private fun loadData() {
         mMultiStateView.startLoading()
         mPresenter.getMessageList()
     }
 
-    /*
-        Dagger注册
-     */
     override fun injectComponent() {
         DaggerMessageComponent.builder().activityComponent(mActivityComponent).messageModule(MessageModule()).build().inject(this)
         mPresenter.mView = this
     }
 
-    /*
-        获取消息后回调
-     */
     override fun onGetMessageResult(result: MutableList<Message>?) {
         if (result != null && result.size > 0){
             mAdapter.setData(result)
@@ -78,13 +63,9 @@ class MessageFragment:BaseMvpFragment<MessagePresenter>(),MessageView {
     }
 
     override fun onDataIsNull() {
-        //数据为空
         mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
     }
 
-    /*
-        监听Fragment隐藏或显示
-     */
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden){

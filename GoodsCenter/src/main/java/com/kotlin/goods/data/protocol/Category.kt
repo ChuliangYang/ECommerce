@@ -1,8 +1,5 @@
 package com.kotlin.goods.data.protocol
 
-/*
-     商品分类
- */
 data class Category(
         val id: Int, //分类ID
         val categoryName: String, //分类名称

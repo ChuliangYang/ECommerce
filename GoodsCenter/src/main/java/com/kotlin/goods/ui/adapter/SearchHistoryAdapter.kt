@@ -9,9 +9,6 @@ import com.kotlin.base.ui.adapter.BaseRecyclerViewAdapter
 import com.kotlin.goods.R
 import kotlinx.android.synthetic.main.layout_search_history_item.view.*
 
-/*
-    搜索历史记录
- */
 class SearchHistoryAdapter(context: Context) : BaseRecyclerViewAdapter<String, SearchHistoryAdapter.ViewHolder>(context) {
 
    override fun onCreateViewHolder(parent: ViewGroup,

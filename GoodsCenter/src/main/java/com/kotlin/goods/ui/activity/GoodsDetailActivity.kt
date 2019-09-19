@@ -24,9 +24,6 @@ import kotlinx.android.synthetic.main.fragment_goods_detail_tab_one.*
 import org.jetbrains.anko.startActivity
 import q.rorbin.badgeview.QBadgeView
 
-/*
-    商品详情 Activity
- */
 class GoodsDetailActivity:BaseActivity() {
 
     private lateinit var mCartBdage:QBadgeView
@@ -39,9 +36,6 @@ class GoodsDetailActivity:BaseActivity() {
         loadCartSize()
     }
 
-    /*
-        初始化视图
-     */
     private fun initView() {
         mGoodsDetailTab.tabMode = TabLayout.MODE_FIXED
         mGoodsDetailVp.adapter = GoodsDetailVpAdapter(supportFragmentManager)
@@ -65,16 +59,9 @@ class GoodsDetailActivity:BaseActivity() {
         mCartBdage = QBadgeView(this)
     }
 
-    /*
-        加载购物车数量
-     */
     private fun loadCartSize() {
         setCartBadge()
     }
-
-    /*
-        监听购物车数量变化
-     */
     private fun initObserve(){
         Bus.observe<UpdateCartSizeEvent>()
                 .subscribe {
@@ -82,9 +69,6 @@ class GoodsDetailActivity:BaseActivity() {
                 }.registerInBus(this)
     }
 
-    /*
-        设置购物车标签
-     */
     private fun setCartBadge() {
         mCartBdage.badgeGravity = Gravity.END or Gravity.TOP
         mCartBdage.setGravityOffset(22f,-2f,true)
@@ -93,9 +77,6 @@ class GoodsDetailActivity:BaseActivity() {
 
     }
 
-    /*
-        Bus取消监听
-     */
     override fun onDestroy() {
         super.onDestroy()
         Bus.unregister(this)

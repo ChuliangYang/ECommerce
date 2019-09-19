@@ -8,18 +8,12 @@ import com.kotlin.goods.presenter.view.GoodsListView
 import com.kotlin.goods.service.GoodsService
 import javax.inject.Inject
 
-/*
-    商品列表 Presenter
- */
 class GoodsListPresenter @Inject constructor() : BasePresenter<GoodsListView>() {
 
     @Inject
     lateinit var goodsService: GoodsService
 
 
-    /*
-        获取商品列表
-     */
     fun getGoodsList(categoryId: Int, pageNo: Int) {
         if (!checkNetWork()) {
             return
@@ -33,9 +27,6 @@ class GoodsListPresenter @Inject constructor() : BasePresenter<GoodsListView>() 
 
     }
 
-    /*
-        根据关键字 搜索商品
-     */
     fun getGoodsListByKeyword(keyword: String, pageNo: Int) {
         if (!checkNetWork()) {
             return

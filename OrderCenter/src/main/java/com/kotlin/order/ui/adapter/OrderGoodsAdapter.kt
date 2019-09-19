@@ -12,9 +12,6 @@ import com.kotlin.order.data.protocol.OrderGoods
 import com.kotlin.base.utils.YuanFenConverter
 import kotlinx.android.synthetic.main.layout_order_goods_item.view.*
 
-/*
-    订单中商品列表
- */
 class OrderGoodsAdapter(context: Context) : BaseRecyclerViewAdapter<OrderGoods, OrderGoodsAdapter.ViewHolder>(context) {
 
 

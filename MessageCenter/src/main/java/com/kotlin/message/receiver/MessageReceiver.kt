@@ -12,10 +12,6 @@ import com.kotlin.provider.event.MessageBadgeEvent
 import com.kotlin.provider.router.RouterPath
 import org.json.JSONObject
 
-
-/*
-    自定义Push 接收器
- */
 class MessageReceiver:BroadcastReceiver() {
     val TAG = "MessageReceiver"
     override fun onReceive(context: Context, intent: Intent) {

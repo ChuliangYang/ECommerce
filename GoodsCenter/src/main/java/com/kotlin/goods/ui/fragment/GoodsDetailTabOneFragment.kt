@@ -33,14 +33,9 @@ import kotlinx.android.synthetic.main.fragment_goods_detail_tab_one.*
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.toast
 
-/*
-    商品详情Tab One
- */
 class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), GoodsDetailView {
     private lateinit var mSkuPop: GoodsSkuPopView
-    //SKU弹层出场动画
     private lateinit var mAnimationStart: Animation
-    //SKU弹层退场动画
     private lateinit var mAnimationEnd: Animation
 
     private var mCurGoods:Goods? = null
@@ -59,9 +54,6 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
         initObserve()
     }
 
-    /*
-        初始化视图
-     */
     private fun initView() {
         mGoodsDetailBanner.setImageLoader(BannerImageLoader())
         mGoodsDetailBanner.setBannerAnimation(Transformer.Accordion)
@@ -79,9 +71,6 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
         }
     }
 
-    /*
-      初始化缩放动画
-   */
     private fun initAnim() {
         mAnimationStart = ScaleAnimation(
                 1f, 0.95f, 1f, 0.95f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
@@ -94,9 +83,6 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
         mAnimationEnd.fillAfter = true
     }
 
-    /*
-        初始化sku弹层
-     */
     private fun initSkuPop() {
         mSkuPop = GoodsSkuPopView(act)
         mSkuPop.setOnDismissListener{
@@ -104,24 +90,15 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
         }
     }
 
-    /*
-        加载数据
-     */
     private fun loadData() {
         mPresenter.getGoodsDetailList(act.intent.getIntExtra(GoodsConstant.KEY_GOODS_ID, -1))
     }
 
-    /*
-        Dagger注册
-     */
     override fun injectComponent() {
         DaggerGoodsComponent.builder().activityComponent(mActivityComponent).goodsModule(GoodsModule()).build().inject(this)
         mPresenter.mView = this
     }
 
-    /*
-        获取商品详情 回调
-     */
     override fun onGetGoodsDetailResult(result: Goods) {
 
         mCurGoods = result
@@ -138,9 +115,6 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
         loadPopData(result)
     }
 
-    /*
-        加载SKU数据
-     */
     private fun loadPopData(result: Goods) {
         mSkuPop.setGoodsIcon(result.goodsDefaultIcon)
         mSkuPop.setGoodsCode(result.goodsCode)
@@ -150,9 +124,6 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
 
     }
 
-    /*
-        监听SKU变化及加入购物车事件
-     */
     private fun initObserve(){
         Bus.observe<SkuChangedEvent>()
                 .subscribe {
@@ -165,17 +136,11 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
                 }.registerInBus(this)
     }
 
-    /*
-        取消事件监听
-     */
     override fun onDestroy() {
         super.onDestroy()
         Bus.unregister(this)
     }
 
-    /*
-        加入购物车
-     */
     private fun addCart(){
         mCurGoods?.let {
             mPresenter.addCart(it.id,
@@ -189,9 +154,6 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
 
     }
 
-    /*
-        加入购物车 回调
-     */
     override fun onAddCartResult(result: Int) {
         Bus.send(UpdateCartSizeEvent())
     }

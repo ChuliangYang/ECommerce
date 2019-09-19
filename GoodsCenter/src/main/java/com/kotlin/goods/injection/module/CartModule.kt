@@ -7,9 +7,6 @@ import com.kotlin.goods.service.impl.GoodsServiceImpl
 import dagger.Module
 import dagger.Provides
 
-/*
-    购物车Module
- */
 @Module
 class CartModule {
 
