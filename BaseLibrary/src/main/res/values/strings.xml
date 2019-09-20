@@ -1,18 +1,20 @@
 <resources>
     <string name="app_name">BaseLibrary</string>
 
-    <string name="coming_soon_tip">敬请期待~~~</string>
-    <string name="common_complete">完成</string>
-    <string name="common_confirm">确认</string>
-    <string name="common_edit">编辑</string>
-    <string name="common_delete">删除</string>
-    <string name="common_next">下一步</string>
-    <string name="common_save">保存</string>
-    <string name="no_data_tip">暂无数据~~~</string>
+    <string name="coming_soon_tip">Coming Soon</string>
+    <string name="common_complete">Complete</string>
+    <string name="common_confirm">Confirm</string>
+    <string name="common_edit">Edit</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_next">Next</string>
+    <string name="common_save">Save</string>
+    <string name="no_data_tip">No Data</string>
 
-    <string name="nav_bar_home">主页</string>
-    <string name="nav_bar_category">分类</string>
-    <string name="nav_bar_cart">购物车</string>
-    <string name="nav_bar_msg">消息</string>
-    <string name="nav_bar_user">我的</string>
+    <string name="nav_bar_home">Main</string>
+    <string name="nav_bar_category">Category</string>
+    <string name="nav_bar_cart">Cart</string>
+    <string name="nav_bar_msg">Message</string>
+    <string name="nav_bar_user">My</string>
+    <string name="load_error">error</string>
+    <string name="loading">Loading</string>
 </resources>

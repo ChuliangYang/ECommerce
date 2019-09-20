@@ -5,7 +5,7 @@
     <com.kotlin.base.widgets.HeaderBar
             android:id="@+id/mHeaderBar"
             style="@style/MatchWrap"
-            app:titleText="重置密码"/>
+            app:titleText="@string/reset_pwd"/>
     <LinearLayout
             style="@style/MatchWrap.Vertical"
             android:background="@drawable/border_corner_all"
@@ -15,7 +15,7 @@
                   android:layout_height="@dimen/common_line_height"
                   android:background="@null"
                   android:paddingLeft="@dimen/common_padding_small"
-                  android:hint="请输入密码（6-20位字母或数字）"
+                  android:hint="@string/input_pwd"
                   android:drawableLeft="@drawable/icon_pwd"
                   android:drawablePadding="@dimen/common_padding_small"
                   android:inputType="textPassword"/>
@@ -24,7 +24,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="@dimen/common_line_height"
                   android:background="@null"
-                  android:hint="请再次输入密码"
+                  android:hint="@string/input_pwd_again"
                   android:drawableLeft="@drawable/icon_pwd"
                   android:drawablePadding="@dimen/common_padding_small"
                   android:inputType="textPassword"/>

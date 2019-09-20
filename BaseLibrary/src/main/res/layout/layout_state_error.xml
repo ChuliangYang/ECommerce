@@ -10,5 +10,5 @@
             style="@style/WrapWrap"
             android:textSize="@dimen/text_large_size"
             android:gravity="center"
-            android:text="加载错误"/>
+            android:text="@string/load_error"/>
 </LinearLayout>

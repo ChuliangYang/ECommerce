@@ -5,7 +5,7 @@
     <com.kotlin.base.widgets.HeaderBar
             style="@style/MatchWrap"
             app:isShowBack="false"
-            app:titleText="消息"/>
+            app:titleText="@string/message"/>
     <com.kennyc.view.MultiStateView
             android:id="@+id/mMultiStateView"
             style="@style/MultiStateStyle">

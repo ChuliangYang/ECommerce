@@ -5,7 +5,7 @@
     <com.kotlin.base.widgets.HeaderBar
             android:id="@+id/mHeaderBar"
             style="@style/MatchWrap"
-            app:titleText="地址管理"/>
+            app:titleText="@string/add_mange"/>
     <com.kennyc.view.MultiStateView
             android:id="@+id/mMultiStateView"
             style="@style/MultiStateStyle"
@@ -23,6 +23,6 @@
             android:padding="@dimen/common_padding_middle"
             android:textSize="@dimen/text_big_size"
             android:textColor="@color/common_white"
-            android:text="新建地址"
+            android:text="@string/new_address"
             android:layout_alignParentBottom="true"/>
 </RelativeLayout>

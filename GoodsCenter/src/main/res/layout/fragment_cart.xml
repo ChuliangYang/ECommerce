@@ -7,7 +7,7 @@
             style="@style/MatchWrap"
             app:isShowBack="false"
             app:rightText="@string/common_edit"
-            app:titleText="购物车"/>
+            app:titleText="@string/shopping_cart"/>
 
     <com.kennyc.view.MultiStateView
             android:id="@+id/mMultiStateView"
@@ -34,7 +34,7 @@
                         android:button="@null"
                         android:drawableLeft="@drawable/common_check_selector"
                         android:drawablePadding="@dimen/common_padding_middle"
-                        android:text="全选"
+                        android:text="@string/select_all"
                         android:textSize="@dimen/text_big_size"/>
 
                 <TextView
@@ -51,7 +51,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:background="@color/common_red"
-                        android:text="去结算"
+                        android:text="@string/pay"
                         android:textColor="@color/common_white"
                         android:textSize="@dimen/text_big_size"/>
 
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:background="@color/common_red"
-                        android:text="删除"
+                        android:text="@string/delete"
                         android:textColor="@color/common_white"
                         android:textSize="@dimen/text_big_size"
                         android:visibility="gone"/>

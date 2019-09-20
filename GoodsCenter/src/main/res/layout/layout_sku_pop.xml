@@ -52,7 +52,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginBottom="@dimen/common_margin"
                     android:layout_marginTop="@dimen/common_margin_small"
-                    android:text="数量"
+                    android:text="@string/numbers"
                     android:textColor="@color/text_dark"
                     android:textSize="@dimen/text_small_size"/>
             <ren.qinc.numberbutton.NumberButton
@@ -72,7 +72,7 @@
                 android:background="@color/common_red"
                 android:gravity="center"
                 android:padding="@dimen/common_padding"
-                android:text="加入购物车"
+                android:text="@string/add_to_cart"
                 android:textColor="@color/common_white"
                 android:textSize="@dimen/text_big_size"/>
     </RelativeLayout>

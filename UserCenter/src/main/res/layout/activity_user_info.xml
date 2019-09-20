@@ -3,7 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               style="@style/MatchMatch.Vertical.Common">
     <com.kotlin.base.widgets.HeaderBar android:id="@id/mHeaderBar"
-                                       app:titleText="个人信息"
+                                       app:titleText="@string/personal_info"
                                        app:rightText="@string/common_save"
                                        style="@style/MatchWrap"/>
     <RelativeLayout android:id="@+id/mUserIconView"
@@ -13,7 +13,7 @@
                     android:paddingBottom="@dimen/common_padding_middle"
                     android:paddingTop="@dimen/common_padding_middle"
     >
-        <TextView android:text="头像"
+        <TextView android:text="@string/avatar"
                   style="@style/user_info_label_style"/>
         <ImageView android:id="@+id/mArrowIv"
                    style="@style/WrapWrap"
@@ -30,16 +30,16 @@
                 android:layout_centerVertical="true"/>
     </RelativeLayout>
     <RelativeLayout style="@style/user_info_line_style">
-        <TextView android:text="昵称"
+        <TextView android:text="@string/nickname"
                   style="@style/user_info_label_style"/>
         <EditText android:id="@+id/mUserNameEt"
                   android:background="@null"
-                  android:hint="请称呼我"
+                  android:hint="@string/call_me"
                   android:maxLength="10"
                   style="@style/user_info_content_style"/>
     </RelativeLayout>
     <RelativeLayout style="@style/user_info_line_style">
-        <TextView android:text="性别"
+        <TextView android:text="@string/gender"
                   style="@style/user_info_label_style"/>
         <RadioGroup android:orientation="horizontal"
                     style="@style/WrapWrap"
@@ -55,7 +55,7 @@
                          android:layout_marginRight="@dimen/common_margin"
                          android:checked="true"
                          android:button="@null"
-                         android:text="男"/>
+                         android:text="@string/male"/>
             <RadioButton android:textSize="@dimen/text_middle_size"
                          android:textColor="@drawable/gender_text_selector"
                          android:gravity="center"
@@ -64,21 +64,21 @@
                          android:layout_width="28.0dip"
                          android:layout_height="28.0dip"
                          android:button="@null"
-                         android:text="女"/>
+                         android:text="@string/female"/>
         </RadioGroup>
     </RelativeLayout>
     <RelativeLayout style="@style/user_info_line_style">
-        <TextView android:text="手机"
+        <TextView android:text="@string/Phone"
                   style="@style/user_info_label_style"/>
         <TextView android:id="@+id/mUserMobileTv"
                   style="@style/user_info_content_style"/>
     </RelativeLayout>
     <RelativeLayout style="@style/user_info_line_style">
-        <TextView android:text="签名"
+        <TextView android:text="@string/sign"
                   style="@style/user_info_label_style"/>
         <EditText android:id="@+id/mUserSignEt"
                   android:background="@null"
-                  android:hint="请您填写签名"
+                  android:hint="@string/sign_your_name"
                   android:inputType="textEmailAddress"
                   style="@style/user_info_content_style"/>
     </RelativeLayout>

@@ -12,18 +12,18 @@
         <EditText
                 android:id="@+id/mKeywordEt"
                 style="@style/SearchHeaderEtStyle"
-                android:hint="搜索商品/品类"/>
+                android:hint="@string/search_item"/>
         <TextView
                 android:id="@+id/mSearchTv"
                 style="@style/WrapWrap"
-                android:text="搜索"
+                android:text="@string/search"
                 android:textColor="@color/common_white"/>
     </LinearLayout>
 
     <TextView
             android:id="@+id/mNoDataTv"
             style="@style/MatchMatch"
-            android:text="暂无历史记录"
+            android:text="@string/no_history"
             android:gravity="center"/>
 
     <LinearLayout
@@ -33,7 +33,7 @@
         <TextView
                 style="@style/WrapWrap"
                 android:layout_margin="@dimen/common_margin"
-                android:text="你最近的搜索历史"/>
+                android:text="@string/recent_history"/>
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/mSearchHistoryRv"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:layout_margin="30dp"
                 android:background="@drawable/corner_gray_white_bg"
                 android:padding="@dimen/common_padding"
-                android:text="清空历史搜索"
+                android:text="@string/clear_history"
                 android:textColor="@color/text_dark"/>
     </LinearLayout>
 </LinearLayout>

@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">OrderCenter</string>
+    <string name="add_mange">Address Manage</string>
+    <string name="new_address">create new address</string>
+    <string name="contact">Contact:</string>
+    <string name="full_address">Address:</string>
+    <string name="my_order">my order</string>
+    <string name="order_confirm">Order Confirm</string>
+    <string name="consignee">Consignee:</string>
+    <string name="pay">pay</string>
+    <string name="pay_online">pay online</string>
+    <string name="submit">submit</string>
+    <string name="order_detail">order detail</string>
+    <string name="delivery_info">delivery info</string>
+    <string name="number">number:</string>
+    <string name="address">Address:</string>
+    <string name="confirm">confrim</string>
+    <string name="pay_now">pay now</string>
+    <string name="cancel">cancel</string>
+    <string name="total_fee">Total Fee:</string>
+    <string name="alipay">alipay</string>
+    <string name="payment_type">Payment type</string>
+    <string name="pay_online">pay online</string>
+    <string name="payment_info">Payment info</string>
+    <string name="delivery_type">Delivery type:</string>
+    <string name="delivery">Delivery</string>
 </resources>

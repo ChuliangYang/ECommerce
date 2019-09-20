@@ -4,7 +4,7 @@
               style="@style/MatchMatch.Vertical.Common">
     <com.kotlin.base.widgets.HeaderBar
             style="@style/MatchWrap"
-            app:titleText="我的订单"/>
+            app:titleText="@string/my_order"/>
     <android.support.design.widget.TabLayout
             android:id="@+id/mOrderTab"
             style="@style/TabsStyle.Order"/>

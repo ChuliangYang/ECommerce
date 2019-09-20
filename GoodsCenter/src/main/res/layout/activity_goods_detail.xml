@@ -41,7 +41,7 @@
                 android:drawablePadding="2dp"
                 android:drawableTop="@drawable/collect_selector"
                 android:gravity="center"
-                android:text="分享"
+                android:text="@string/share"
                 android:textColor="@drawable/bottom_nav_text_selector"
                 android:textSize="@dimen/text_small_size"/>
         <TextView
@@ -54,7 +54,7 @@
                 android:drawablePadding="2dp"
                 android:drawableTop="@drawable/bottom_nav_cart_selector"
                 android:gravity="center"
-                android:text="购物车"
+                android:text="@string/cart"
                 android:textColor="@drawable/bottom_nav_text_selector"
                 android:textSize="@dimen/text_small_size"/>
         <Button
@@ -62,7 +62,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="加入购物车"
+                android:text="@string/add_to_cart"
                 android:background="@color/common_red"
                 android:textColor="@color/common_white"
                 android:textSize="@dimen/text_big_size"/>

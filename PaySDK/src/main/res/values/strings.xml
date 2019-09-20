@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PaySDK</string>
+    <string name="cashier">Cashier</string>
+    <string name="alipay">alipay</string>
+    <string name="wechat_pay">wechat pay</string>
+    <string name="card_pay">pay by card</string>
+    <string name="pay_now">pay now</string>
 </resources>

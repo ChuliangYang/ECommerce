@@ -5,7 +5,7 @@
 
     <com.kotlin.base.widgets.HeaderBar
             style="@style/MatchWrap"
-            app:titleText="商品列表"/>
+            app:titleText="@string/goods_center"/>
 
     <com.kennyc.view.MultiStateView
             android:id="@+id/mMultiStateView"

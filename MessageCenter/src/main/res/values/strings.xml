@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MessageCenter</string>
+    <string name="message">message</string>
 </resources>
