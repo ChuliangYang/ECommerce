@@ -28,20 +28,20 @@
             android:paddingBottom="@dimen/common_padding_middle"
             style="@style/MatchWrap.Horizontal">
         <TextView android:id="@+id/mWaitPayOrderTv"
-                  android:text="待付款"
+                  android:text="@string/pending"
                   android:drawableTop="@drawable/icon_order_wait_pay"
                   style="@style/MeOrderLabelStyle"/>
         <TextView android:id="@+id/mWaitConfirmOrderTv"
-                  android:text="待收货"
+                  android:text="@string/ordered"
                   android:drawableTop="@drawable/icon_order_wait_confirm"
                   style="@style/MeOrderLabelStyle"/>
         <TextView android:id="@+id/mCompleteOrderTv"
-                  android:text="已完成"
+                  android:text="@string/completed"
                   android:drawableTop="@drawable/icon_order_completed"
                   style="@style/MeOrderLabelStyle"/>
         <View style="@style/DividerFixedWidth"/>
         <TextView android:id="@+id/mAllOrderTv"
-                  android:text="我的订单"
+                  android:text="@string/my_order"
                   android:drawableTop="@drawable/icon_order"
                   style="@style/MeOrderLabelStyle"/>
     </LinearLayout>
@@ -49,17 +49,17 @@
             android:id="@+id/mAddressTv"
             android:background="@drawable/border_all"
             android:layout_marginTop="@dimen/common_margin"
-            android:text="收货管理"
+            android:text="@string/address"
             android:drawableLeft="@drawable/icon_address"
             style="@style/MeItemStyle"/>
     <TextView
             android:id="@+id/mShareTv"
-            android:text="分享"
+            android:text="@string/share"
             android:drawableLeft="@drawable/icon_share"
             style="@style/MeItemStyle"/>
     <TextView
             android:id="@+id/mSettingTv"
-            android:text="设置"
+            android:text="@string/setting"
             android:drawableLeft="@drawable/icon_setting"
             style="@style/MeItemStyle"/>
 </LinearLayout>

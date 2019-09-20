@@ -4,22 +4,22 @@
               style="@style/MatchMatch.Vertical">
     <com.kotlin.base.widgets.HeaderBar
             style="@style/MatchWrap"
-            app:titleText="设置"/>
+            app:titleText="@string/setting"/>
     <TextView
             android:id="@+id/mUserProtocolTv"
             style="@style/SettingItemStyle"
-            android:text="用户协议"/>
+            android:text="@string/protocol"/>
     <TextView
             android:id="@+id/mFeedBackTv"
             style="@style/SettingItemStyle"
-            android:text="反馈意见"/>
+            android:text="@string/feedback"/>
     <TextView
             android:id="@+id/mAboutTv"
             style="@style/SettingItemStyle"
-            android:text="关于"/>
+            android:text="@string/about"/>
     <Button
             android:id="@+id/mLogoutBtn"
-            android:text="退出登录"
+            android:text="@string/log_out"
             style="@style/FullBtnStyle"
             android:enabled="true"
     />

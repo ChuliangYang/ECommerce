@@ -34,7 +34,7 @@
                     android:textColor="@color/common_black"
                     android:textSize="@dimen/text_small_size"
                     android:textStyle="bold"
-                    android:text="@string/trending"
+                    android:text="@string/hot"
                     android:layout_marginTop="@dimen/common_margin_middle"/>
 
             <com.kennyc.view.MultiStateView

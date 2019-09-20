@@ -16,11 +16,11 @@
                   style="@style/WrapWrap"
                   android:layout_marginLeft="@dimen/common_margin_small"
                   android:layout_marginTop="@dimen/common_margin_small"
-                  android:text="爱生活"/>
+                  android:text="@string/life"/>
         <TextView android:textSize="@dimen/text_small_size"
                   android:textColor="@color/text_dark"
                   style="@style/WrapWrap"
                   android:layout_marginLeft="@dimen/common_margin_small"
-                  android:text="有品有范有时尚"/>
+                  android:text="@string/fashion"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

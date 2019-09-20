@@ -15,7 +15,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 app:backgroundColor="@color/common_red"
-                app:primaryText="折扣"
+                app:primaryText="@string/discount"
                 app:primaryTextSize="10.0sp"
                 app:labelTopPadding="10.0dip"
                 app:labelCenterPadding="0.0dip"

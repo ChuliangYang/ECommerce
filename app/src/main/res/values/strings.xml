@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">KotlinMall</string>
     <string name="un_login_text">Login/Register</string>
+    <string name="setting">setting</string>
+    <string name="protocol">protocol</string>
+    <string name="feedback">feedback</string>
+    <string name="about">about</string>
+    <string name="log_out">log out</string>
+    <string name="search">search</string>
+    <string name="hot">hot</string>
+    <string name="discount">discount</string>
+    <string name="life">life</string>
+    <string name="fashion">fashion</string>
+    <string name="completed">completed</string>
+    <string name="my_order">my order</string>
+    <string name="pending">pending</string>
+    <string name="ordered">ordered</string>
+    <string name="address">address</string>
+    <string name="share">share</string>
+    <string name="setting">setting</string>
 </resources>

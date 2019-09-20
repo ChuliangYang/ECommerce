@@ -6,7 +6,7 @@
             android:paddingLeft="@dimen/common_padding">
         <EditText
                 android:id="@+id/mSearchEt"
-                android:hint="搜索商品/品类"
+                android:hint="@string/search"
                 android:cursorVisible="false"
                 android:editable="false"
                 style="@style/SearchHeaderEtStyle"/>
@@ -35,7 +35,7 @@
             android:paddingTop="@dimen/common_padding_small"
             android:paddingBottom="@dimen/common_margin_small"
             style="@style/MatchWrap"
-            android:text="火爆进行中"
+            android:text="@string/hot"
             android:drawableLeft="@drawable/icon_special"
             android:drawablePadding="@dimen/common_padding_small"/>
     <android.support.v7.widget.RecyclerView
